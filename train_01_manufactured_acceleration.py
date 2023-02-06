@@ -7,19 +7,19 @@ import pandas as pd
 
 def train_n_c():
     net = Net_C(1, 350, 8, 1).cuda()
-    trainer = Trainer(net, 'n_c')
+    trainer = Trainer(net)
     trainer.setup_dataloader(batchsize, data_train, data_train, ['x'], ['y'], ['yDot'], ['yDDot'])
     trainer.fit(epochs=epochs, initial_lr=initial_lr, lr_halflife=lr_halflife)
 
 def train_n_ag():
     net = Net_AG(1, 350, 8, 1).cuda()
-    trainer = Trainer(net, 'n_ag')
+    trainer = Trainer(net)
     trainer.setup_dataloader(batchsize, data_train, data_train, ['x'], ['y'], ['yDot'], ['yDDot'])
     trainer.fit(epochs=epochs, initial_lr=initial_lr, lr_halflife=lr_halflife)
 
 def train_n_dp():
     net = Net_DP(1, 200, 8, 1).cuda()
-    trainer = Trainer(net, 'n_dp')
+    trainer = Trainer(net)
     trainer.setup_dataloader(batchsize, data_train, data_train, ['x'], ['y'], ['yDot'], ['yDDot'])
     trainer.fit(epochs=epochs, initial_lr=initial_lr, lr_halflife=lr_halflife)
 
