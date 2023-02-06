@@ -7,13 +7,11 @@ from torch.optim import RAdam
 from sklearn.metrics import r2_score
 
 class Trainer:
-    def __init__(self, net: Net_C, net_type: str = 'n_c'):
+    def __init__(self, net: Net_C):
         """
         Trainer class
         :param net: model instances
         :type net: modules.n_c.Net_C, modules.n_ag.Net_AG, modules.n_dp.Net_DP
-        :param net_type: model types, one of ['n_c', 'n_ag', 'n_dp']
-        :type net_type: str
         """
         self.net = net
         self.net_type = net.net_type
