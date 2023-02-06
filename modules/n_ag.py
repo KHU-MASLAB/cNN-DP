@@ -36,7 +36,7 @@ class Net_AG(Net_C):
             x = F.gelu(x)
         y = self.Linears['out'](x)
         
-        # Differential operators
+        # Differential operators for yDot and yDDot
         yDot = torch.empty_like(y)
         yDDot = torch.empty_like(y)
         for i in range(y.shape[1]):
