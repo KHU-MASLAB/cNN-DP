@@ -99,7 +99,7 @@ class Trainer:
                     train_x = (train_x - self.mean_x) / self.std_x  # Apply unit Gaussian normalization
                     if self.net_type == 'n_c':  # Apply unit Gaussian normalization on yDDot
                         train_yDDot = (train_yDDot - self.mean_yDDot) / self.std_yDDot
-                    elif self.net_type == 'n_ag':  # Apply chain rule wrt time on yDot, yDDot
+                    elif self.net_type == 'n_ag':  # Apply time differentiation chain rule on yDot, yDDot
                         train_y = (train_y - self.mean_y) / self.std_y
                         train_yDot = train_yDot * (self.std_x[0] / self.std_y)
                         train_yDDot = train_yDDot * (self.std_x[0] ** 2 / self.std_y)
