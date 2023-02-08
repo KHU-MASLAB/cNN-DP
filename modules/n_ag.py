@@ -6,7 +6,7 @@ from .utils import initializer
 
 class Net_AG(nn.Module):
     def __init__(self, input_dim, width, depth, output_dim):
-        super(Net_C, self).__init__()
+        super(Net_AG, self).__init__()
         self.input_dim = input_dim
         self.depth = depth
         self.width = width
