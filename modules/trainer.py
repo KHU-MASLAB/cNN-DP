@@ -1,7 +1,8 @@
 import torch
+import pandas as pd
 from modules.n_c import Net_C
 from modules.utils import mse
-import pandas as pd
+from copy import deepcopy
 from torch.utils.data import TensorDataset, DataLoader
 from torch.optim import RAdam
 from sklearn.metrics import r2_score
@@ -187,7 +188,7 @@ class Trainer:
             loss_total = torch.mean(torch.square(label - prediction))
             if loss_total < best_mse_value:
                 best_mse_value = loss_total
-                best_model_param = self.net.state_dict()
+                best_model_param = deepcopy(self.net.state_dict())
             
             # Decay lr by half
             if (epoch + 1) % lr_halflife == 0:
