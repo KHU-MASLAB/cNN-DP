@@ -11,10 +11,11 @@ It is effective, specifically for:
 
 Examples we present in our paper include:
 
+* Solutions of chaotic dynamic systems
 * Earthquake measurements
 * Rigid body contact
 * Vehicle simulations
-* Solution derivatives of chaotic systems
+
 
 ## What's the advantage of using this?
 * Highly precise generalization on oscillatory, impulsive, and chaotic systems
