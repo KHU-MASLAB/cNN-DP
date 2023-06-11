@@ -50,12 +50,14 @@ It is another competitor of the proposed cNN-DP. Suppose we have data of multipl
 
 It will first output the lowest-order prediction. Then, we repeatedly differentiate the network to the time variable (which should be given in the input) to reach the highest-order prediction.
 
-This approach can be a considerable substitute. However, it turns out to be extremely expensive and slow both for training and inference.
+This approach can be a considerable substitute. However, it turns out to be extremely expensive and slow for both training and inference.
 
 ## How do I use the codes?
 In the ```examples``` directory, we have **three examples presented in the paper** each including **data generation, training, and visualizing** codes.
 
-```train.py``` will train network models and save it to ```models``` directory. Inference of saved models can be easily obtained through ```architectures.interface.NetInterface``` class as following pseudocode:
+Simply running the ```datagen.py``` will automatically construct data files in the ```data``` directory.
+
+```train.py``` will train network models and save it to ```models``` directory. Inference of saved models can be easily obtained through ```architectures.interface.NetInterface``` class's ```predict``` method as following pseudocode:
 ```
 n_dp = NetInterface(models/SAVED_MODEL.pt)
 y,yDot,yDDot=n_dp.predict(input)
