@@ -45,7 +45,7 @@ def forward(x):
 Although we only use three subnets in our paper, the number of subnets in the cNN-DP is **not strictly limited**. Theoretically 2 to ```inf```.
 
 ## What is the auto-gradient network?
-Suppose we have data of multiple orders of derivatives and we target the highest derivative, just like the cNN-DP. The idea of the auto-gradient network is to utilize automatic differentiation (```torch.autograd.grad```) to compute high-order predictions of neural networks.
+It is another competitor of the proposed cNN-DP. Suppose we have data of multiple orders of derivatives and we target the highest derivative, just like the cNN-DP. The idea of the auto-gradient network is to utilize automatic differentiation (```torch.autograd.grad```) to compute high-order predictions of neural networks.
 
 It will first output the lowest-order prediction. Then, we repeatedly differentiate the network to the time variable (which should be given in the input) to reach the highest-order prediction.
 
