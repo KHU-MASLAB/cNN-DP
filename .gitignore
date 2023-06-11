@@ -2,3 +2,7 @@
 __pycache__/*
 **/.idea/**
 **/__pycache__/**
+*DS_Store*
+old_repo/*
+data/*
+figures/*
