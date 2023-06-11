@@ -9,12 +9,12 @@ It is effective, specifically for:
 * Modeling oscillatory solutions (derivatives) of differential equations
 * Learning noisy and impulsive time series measurements
 
-Examples we present in our paper include:
+Examples we present in our paper cover following systems:
 
 * Solutions of chaotic dynamic systems
 * Earthquake measurements
 * Rigid body contact
-* Vehicle simulations
+* Industrial-level vehicle simulation
 
 
 ## What's the advantage of using this?
