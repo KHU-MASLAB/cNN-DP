@@ -4,7 +4,7 @@ Lee, Hyeonbeen and Han, Seongji and Choi, Hee-Sun and Kim, Jin-Gyun, *cNN-DP: Co
 ## What is this for?
 > cNN-DP: Composite neural network with differential propagation
 
-We propose a novel composite neural network for effective learning of highly impulsive/oscillatory time series data. We assume our target as **high-order derivatives** and utilize **additional low-order derivatives**, which were *wasted* or *inactively treated* before.  
+We propose a novel composite neural network for effective learning of highly impulsive/oscillatory/chaotic dynamic systems. We assume our target as **high-order derivatives** and utilize **additional low-order derivatives**, which were *wasted* or *inactively considered* before.  
 It is effective, specifically for:
 * Modeling oscillatory solutions (derivatives) of differential equations
 * Learning noisy and impulsive time series measurements
