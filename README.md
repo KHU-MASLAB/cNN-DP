@@ -29,7 +29,7 @@ Examples we present in our paper include:
 <img width="1108" alt="Screenshot 2023-06-11 at 20 33 29" src="https://github.com/KHU-MASLAB/cNN-DP/assets/78078652/e640be65-35b1-4f9a-8095-7b755f0eaaf7">
 Dynamics tend to become more 'impulsive' in high-order derivatives. In reverse, it becomes 'simpler'. Then, why don't we let the neural network also refer to 'simple' when it's learning 'impulsive', rather than solely learning the 'impulsive'? 
 
-We intend our neural network to learn the 'simple' and the 'impulsive' simultaneously by interconnecting multiple subnetworks with corresponding losses. The preceding subnets will predict the 'simple's, and their outputs are connected to inputs of subsequent subnets. This enables richer context information in the learning of impulsive time series data.
+We intend our neural network to learn the 'simple' and the 'impulsive' simultaneously by interconnecting multiple MLP subnetworks with corresponding losses. The preceding subnets predict the 'simple's, and their outputs are connected to inputs of subsequent subnets. This enables richer context information in the learning of impulsive or chaotic systems as functions of time and design variables.
 
 Using ```torch``` pseudocode, the process can be expressed as:
 ```
@@ -42,7 +42,7 @@ def forward(x):
   yDDot=n_dp2(x,y,yDDot)
   return y,yDot,yDDot
 ```
-Although we always use three subnets in our paper, the number of subnets in the cNN-DP is not strictly limited. Theoretically 2 to ```inf```.
+Although we only use three subnets in our paper, the number of subnets in the cNN-DP is **not strictly limited**. Theoretically 2 to ```inf```.
 
 ## What is the auto-gradient network?
 Suppose we have data of multiple orders of derivatives and we target the highest derivative, just like the cNN-DP. The idea of the auto-gradient network is to utilize automatic differentiation (```torch.autograd.grad```) to compute high-order predictions of neural networks.
