@@ -28,7 +28,9 @@ Examples we present in our paper cover following systems:
 
 ## How does it work?
 <img width="1108" alt="Screenshot 2023-06-11 at 20 33 29" src="https://github.com/KHU-MASLAB/cNN-DP/assets/78078652/e640be65-35b1-4f9a-8095-7b755f0eaaf7">
-Dynamics tend to become more 'impulsive' in high-order derivatives. In reverse, it becomes 'simpler'. Then, why don't we let the neural network also refer to 'simple' when it's learning 'impulsive', rather than solely learning the 'impulsive'? 
+
+Dynamics tend to become more 'impulsive' in high-order derivatives. In reverse, it becomes 'simpler'.  
+Then, why don't we let the neural network also refer to 'simple' when it's learning 'impulsive', rather than solely learning the 'impulsive'? 
 
 We intend our neural network to learn the 'simple' and the 'impulsive' simultaneously by interconnecting multiple MLP subnetworks with corresponding multi-order derivative losses. The preceding subnets predict the 'simple's, and their outputs are connected to inputs of subsequent subnets. This enables richer context information in the learning of impulsive or chaotic systems as functions of time and design variables.
 
@@ -43,12 +45,14 @@ def forward(x):
   yDDot=n_dp2(x,y,yDDot)
   return y,yDot,yDDot
 ```
+This simple composition of subnetworks along with augmented multi-order derivatives produce strong improvements while maintaining speeds and costs.  
 Although we only use three subnets in our paper, the number of subnets in the cNN-DP is **not strictly limited**. Theoretically 2 to ```inf```.
 
 ## What is the auto-gradient network?
-It is another competitor of the proposed cNN-DP. Suppose we have data of multiple orders of derivatives and we target the highest derivative, just like the cNN-DP. The idea of the auto-gradient network is to utilize automatic differentiation (```torch.autograd.grad```) to compute high-order predictions of neural networks.
+It is another competitor of the proposed cNN-DP using automatic differentiation to learn multi-order derivatives.  
+Suppose we have data of multiple orders of derivatives and we target the highest derivative, just like the cNN-DP. The idea of the auto-gradient network is to utilize automatic differentiation (```torch.autograd.grad```) to compute high-order predictions of neural networks.
 
-It will first output the lowest-order prediction. Then, we repeatedly differentiate the network to the time variable (which should be given in the input) to reach the highest-order prediction.
+It first outputs the lowest-order prediction. Then, we repeatedly differentiate the network to the time variable (which should be given in the input) to reach the highest-order prediction.
 
 This approach can be a considerable substitute. However, it turns out to be extremely expensive and slow for both training and inference.
 
