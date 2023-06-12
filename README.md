@@ -30,7 +30,7 @@ Examples we present in our paper cover following systems:
 <img width="1108" alt="Screenshot 2023-06-11 at 20 33 29" src="https://github.com/KHU-MASLAB/cNN-DP/assets/78078652/e640be65-35b1-4f9a-8095-7b755f0eaaf7">
 Dynamics tend to become more 'impulsive' in high-order derivatives. In reverse, it becomes 'simpler'. Then, why don't we let the neural network also refer to 'simple' when it's learning 'impulsive', rather than solely learning the 'impulsive'? 
 
-We intend our neural network to learn the 'simple' and the 'impulsive' simultaneously by interconnecting multiple MLP subnetworks with corresponding losses. The preceding subnets predict the 'simple's, and their outputs are connected to inputs of subsequent subnets. This enables richer context information in the learning of impulsive or chaotic systems as functions of time and design variables.
+We intend our neural network to learn the 'simple' and the 'impulsive' simultaneously by interconnecting multiple MLP subnetworks with corresponding multi-order derivative losses. The preceding subnets predict the 'simple's, and their outputs are connected to inputs of subsequent subnets. This enables richer context information in the learning of impulsive or chaotic systems as functions of time and design variables.
 
 Using ```torch``` pseudocode, the process can be expressed as:
 ```
