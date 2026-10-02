@@ -132,7 +132,7 @@ def plot_loss_hist():
     types_ = [" (Training)", " (Validation)"]
 
     fig, axes = plt.subplots(1, 3, figsize=(12, 5))
-    x = np.arange(len(model_dp.loss_history[t])) + 1
+    x = np.arange(len(model_dp.loss_history["train"])) + 1
     for i in range(3):
         for j, t in enumerate(types):
             axes[i].plot(
@@ -153,7 +153,7 @@ def plot_loss_hist():
                 x,
                 model_dp.loss_history[t][:, i],
                 ls=lss[j],
-                label=labels[3] + types_[j],
+                label=labels[2] + types_[j],
                 **style_dp,
             )
         axes[i].set_yscale("log")
@@ -194,7 +194,7 @@ def plot_error_hist():
     ]
     types_ = [" (Training)", " (Validation)"]
 
-    x = np.arange(len(model_dp.loss_history[t])) + 1
+    x = np.arange(len(model_dp.loss_history["train"])) + 1
     fig, axes = plt.subplots(1, 3, figsize=(12, 5))
 
     for i in range(3):

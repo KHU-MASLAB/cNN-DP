@@ -33,7 +33,7 @@ def train_n_ag(loss_fn="mse"):
         initial_lr=initial_lr,
         lr_halflife=lr_halflife,
         loss_fn=loss_fn,
-        save_name=f"vdp/n_ag_{loss_fn}",
+        save_name="vdp/n_ag" if loss_fn == "mse" else f"vdp/n_ag_{loss_fn}",
     )
 
 

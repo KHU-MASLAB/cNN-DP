@@ -664,6 +664,7 @@ class Trainer:
             path = f"models/{save_name}.pt"
         else:
             path = f"models/{self.net_type}_{self.datetime}.pt"
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         torch.save(result, path)
         print(f"Model saved at: {path}")
 
